@@ -1,0 +1,17 @@
+# Config for Dependabot updates.
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  # Update GitHub actions in workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    # Check for updates to GitHub Actions every weekday
+    schedule:
+      interval: "daily"
+  # Enable version updates for Python packages
+  - package-ecosystem: "pip"
+    directory: "/"
+    # Check for updates to Python packages every weekday
+    schedule:
+      interval: "daily"

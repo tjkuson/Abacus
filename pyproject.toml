@@ -1,0 +1,66 @@
+[tool.poetry]
+name = "Abacus"
+version = "0.1.0"
+description = "Debate tournament tabulator and convening suite."
+authors = ["Tom Kuson <mail@tjkuson.me>"]
+license = "AGPL-3.0-only"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^4.1.4"
+django-allauth = "^0.51.0"
+django-crispy-forms = "^1.14.0"
+crispy-bootstrap5 = "^0.7"
+
+[tool.poetry.group.dev.dependencies]
+# Base Python development packages
+black = "^22.12.0"
+isort = "^5.11.4"
+pylint = "^2.15.9"
+mypy = ">=0.980"
+pylint-django = "^2.5.3"
+djlint = "^1.19.9"
+django-stubs = {extras = ["compatible-mypy"], version = ">=1.13.0"}
+django-debug-toolbar = "^3.8.1"
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "config.settings"
+
+[tool.pylint."MASTER"]
+py-version = "3.11"
+load-plugins = "pylint_django"
+django-settings-module = "config.settings.local"
+
+[tool.pylint."FORMAT"]
+max-line-length = 88
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = """
+    missing-docstring,
+    invalid-name
+"""
+
+[tool.pylint."DESIGN"]
+max-parents = 13
+
+[tool.pylint."TYPECHECK"]
+generated-members = """
+    REQUEST,
+    acl_users,
+    aq_parent,
+    "[a-zA-Z]+_set{1,2}",
+    save,
+    delete
+"""
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
