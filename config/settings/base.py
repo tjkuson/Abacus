@@ -88,8 +88,13 @@ MIDDLEWARE: list[str] = [
 
 # Static files
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL: str = "/static/"
+STATICFILES_DIRS: list[str] = [str(APPS_DIR / "static")]
+STATIC_ROOT: str = str(APPS_DIR / "staticfiles")
+STATICFILES_FINDERS: list[str] = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 # Templates
 
