@@ -28,6 +28,9 @@ django-debug-toolbar = "^3.8.1"
 line-length = 88
 target-version = ["py311"]
 
+[tool.isort]
+profile = "black"
+
 [tool.mypy]
 plugins = ["mypy_django_plugin.main"]
 
