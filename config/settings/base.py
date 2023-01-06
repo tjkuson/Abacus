@@ -4,7 +4,7 @@ Base settings to build other settings files upon.
 from pathlib import Path
 
 ROOT_DIR: Path = Path(__file__).resolve(strict=True).parent.parent.parent
-APPS_DIR: Path = ROOT_DIR / "abacus"
+APPS_DIR: Path = ROOT_DIR / "Abacus"
 
 # Time zone
 
@@ -52,7 +52,7 @@ DJANGO_APPS: list[str] = [
 
 THIRD_PARTY_APPS = []
 
-LOCAL_APPS = []
+LOCAL_APPS: list[str] = ["Abacus.tournaments.apps.TournamentsConfig"]
 
 INSTALLED_APPS: list[str] = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -89,7 +89,10 @@ MIDDLEWARE: list[str] = [
 # Static files
 
 STATIC_URL: str = "/static/"
-STATICFILES_DIRS: list[str] = [str(APPS_DIR / "static")]
+STATICFILES_DIRS: list[str] = [
+    str(APPS_DIR / "static"),
+    str(ROOT_DIR / "node_modules/bootstrap/dist"),
+]
 STATIC_ROOT: str = str(APPS_DIR / "staticfiles")
 STATICFILES_FINDERS: list[str] = [
     "django.contrib.staticfiles.finders.FileSystemFinder",

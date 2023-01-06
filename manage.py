@@ -29,7 +29,7 @@ def main():
     # This allows easy placement of apps within the interior
     # my_awesome_project directory.
     current_path = Path(__file__).parent.resolve()
-    sys.path.append(str(current_path / "abacus"))
+    sys.path.append(str(current_path / "Abacus"))
 
     execute_from_command_line(sys.argv)
 
