@@ -1,5 +1,5 @@
 """
-WSGI config for abacus project.
+WSGI config for Abacus project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -13,9 +13,9 @@ from pathlib import Path
 
 from django.core.wsgi import get_wsgi_application
 
-# This allows easy placement of apps within the interior abacus directory.
+# This allows easy placement of apps within the interior Abacus directory.
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent
-sys.path.append(str(ROOT_DIR / "abacus"))
+sys.path.append(str(ROOT_DIR / "Abacus"))
 
 # Set the default config to local (not production-ready)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
