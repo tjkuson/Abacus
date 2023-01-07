@@ -6,7 +6,7 @@ from .models import Tournament
 class TournamentTests(TestCase):
     """Test tournament model."""
 
-    def test_create_tournament(self):
+    def test_create_tournament(self) -> None:
         """Test a tournament can be created."""
 
         tournament = Tournament.objects.create(name="Example IV", slug="example")

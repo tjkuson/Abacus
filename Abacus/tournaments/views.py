@@ -6,7 +6,7 @@ from .forms import TournamentCreateForm, TournamentUpdateForm
 from .models import Tournament
 
 
-def get_tournament_from_slug(tournament_slug: str):
+def get_tournament_from_slug(tournament_slug: str) -> Tournament:
     """Return tournament from given tournament slug; else, return 404."""
 
     try:
@@ -19,24 +19,24 @@ def get_tournament_from_slug(tournament_slug: str):
         raise RuntimeWarning(msg) from exc
 
 
-class TournamentListView(ListView):
+class TournamentListView(ListView[Tournament]):
     model = Tournament
     template_name = "tournament/tournaments_list.html"
 
 
-class TournamentCreateView(CreateView):
+class TournamentCreateView(CreateView[Tournament, TournamentCreateForm]):
     model = Tournament
     form_class = TournamentCreateForm
     success_url = reverse_lazy("tournaments_list")
     template_name = "tournaments/tournament_create.html"
 
 
-class TournamentDetailView(DetailView):
+class TournamentDetailView(DetailView[Tournament]):
     model = Tournament
     template_name = "tournaments/tournament_detail.html"
 
 
-class TournamentUpdateView(UpdateView):
+class TournamentUpdateView(UpdateView[Tournament, TournamentUpdateForm]):
     model = Tournament
     form_class = TournamentUpdateForm
     template_name = "tournaments/tournament_update.html"

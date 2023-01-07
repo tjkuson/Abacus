@@ -7,4 +7,4 @@ echo "Formatting with black..."
 python -m poetry run black .
 
 echo "Formatting with DjLint..."
-python -m poetry run djlint .
+python -m poetry run djlint . --reformat

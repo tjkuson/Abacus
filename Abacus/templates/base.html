@@ -1,20 +1,22 @@
 {% load static i18n %}
 <!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="{{ LANGUAGE_CODE }}" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <title>
             {% block title %}
                 Abacus
             {% endblock title %}
         </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description"
-              content="Debate tournament tabulator and convening suite.">
+              content="Debate tournament tabulator and convening suite." />
+        <meta name="keywords"
+              content="debate, tournament, tab, tabulation, tabulator" />
         {% block css %}
-            <link href="{% static 'css/style.css' %}" rel="stylesheet">
+            <link href="{% static 'css/style.css' %}" rel="stylesheet" />
         {% endblock %}
     </head>
     <body>

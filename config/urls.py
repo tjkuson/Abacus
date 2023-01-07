@@ -1,9 +1,13 @@
+# django-stubs can't handle appending to a list of URLResolvers:
+# https://github.com/typeddjango/django-stubs/issues/550
+# type: ignore
+
 from django.conf import settings
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import URLResolver, include, path
 from django.views import defaults as default_views
 
-urlpatterns = [
+urlpatterns: list[URLResolver] = [
     path("admin/", admin.site.urls),
     path("", include("Abacus.tournaments.urls")),
 ]
