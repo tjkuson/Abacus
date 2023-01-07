@@ -3,6 +3,12 @@ Base settings to build other settings files upon.
 """
 from pathlib import Path
 
+import django_stubs_ext
+
+# Monkey-patching Django, so stubs will work for all generics;
+# see https://github.com/typeddjango/django-stubs
+django_stubs_ext.monkeypatch()
+
 ROOT_DIR: Path = Path(__file__).resolve(strict=True).parent.parent.parent
 APPS_DIR: Path = ROOT_DIR / "Abacus"
 
@@ -50,9 +56,12 @@ DJANGO_APPS: list[str] = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS: list[str] = []
+THIRD_PARTY_APPS: list[str] = ["crispy_forms", "crispy_bootstrap5"]
 
-LOCAL_APPS: list[str] = ["Abacus.tournaments.apps.TournamentsConfig"]
+LOCAL_APPS: list[str] = [
+    "Abacus.tournaments.apps.TournamentsConfig",
+    "Abacus.pages.apps.PagesConfig",
+]
 
 INSTALLED_APPS: list[str] = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -91,7 +100,10 @@ MIDDLEWARE: list[str] = [
 STATIC_URL: str = "/static/"
 STATICFILES_DIRS: list[str] = [
     str(APPS_DIR / "static"),
-    str(ROOT_DIR / "node_modules/bootstrap/dist"),
+    str(
+        ROOT_DIR / "node_modules"
+    ),  # This is a very brute-force way of doing this, but it works for now!
+    # TODO: Create a better way of doing this (file finder).
 ]
 STATIC_ROOT: str = str(APPS_DIR / "staticfiles")
 STATICFILES_FINDERS: list[str] = [

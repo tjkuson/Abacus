@@ -8,7 +8,7 @@ from .views import (
 )
 
 urlpatterns = [
-    path("", TournamentListView.as_view(), name="tournaments_list"),
+    path("", TournamentListView.as_view(), name="tournament_list"),
     path(
         "tournaments/create/", TournamentCreateView.as_view(), name="tournament_create"
     ),

@@ -21,13 +21,13 @@ def get_tournament_from_slug(tournament_slug: str) -> Tournament:
 
 class TournamentListView(ListView[Tournament]):
     model = Tournament
-    template_name = "tournament/tournaments_list.html"
+    template_name = "tournament/tournament_list.html"
 
 
 class TournamentCreateView(CreateView[Tournament, TournamentCreateForm]):
     model = Tournament
     form_class = TournamentCreateForm
-    success_url = reverse_lazy("tournaments_list")
+    success_url = reverse_lazy("tournament_list")
     template_name = "tournaments/tournament_create.html"
 
 
