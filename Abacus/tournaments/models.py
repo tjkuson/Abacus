@@ -9,14 +9,14 @@ class Tournament(models.Model):
         max_length=80,
         blank=True,
         null=True,
-        help_text=f"The full name—for example, ‘Manchester Open {date.today().year}’",
+        help_text=f"The full name (for example, ‘Manchester Open {date.today().year}’)",
         verbose_name="name",
     )
     slug = models.SlugField(
         max_length=16,
         blank=False,
         null=False,
-        help_text=f"The end part of the URL, ‘mancopen{date.today().year}’",
+        help_text=f"The end part of the URL (for example, ‘mancopen{date.today().year}’)",
         verbose_name="URL slug",
     )
     is_active = models.BooleanField(

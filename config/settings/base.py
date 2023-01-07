@@ -56,7 +56,7 @@ DJANGO_APPS: list[str] = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS: list[str] = []
+THIRD_PARTY_APPS: list[str] = ["crispy_forms", "crispy_bootstrap5"]
 
 LOCAL_APPS: list[str] = ["Abacus.tournaments.apps.TournamentsConfig"]
 
@@ -97,7 +97,10 @@ MIDDLEWARE: list[str] = [
 STATIC_URL: str = "/static/"
 STATICFILES_DIRS: list[str] = [
     str(APPS_DIR / "static"),
-    str(ROOT_DIR / "node_modules/bootstrap/dist"),
+    str(
+        ROOT_DIR / "node_modules"
+    ),  # This is a very brute-force way of doing this, but it works for now!
+    # TODO: Create a better way of doing this (file finder).
 ]
 STATIC_ROOT: str = str(APPS_DIR / "staticfiles")
 STATICFILES_FINDERS: list[str] = [
