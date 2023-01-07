@@ -9,6 +9,7 @@ from django.views import defaults as default_views
 
 urlpatterns: list[URLResolver] = [
     path("admin/", admin.site.urls),
+    path("", include("Abacus.pages.urls")),
     path("", include("Abacus.tournaments.urls")),
 ]
 

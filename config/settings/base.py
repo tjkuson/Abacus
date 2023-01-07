@@ -58,7 +58,10 @@ DJANGO_APPS: list[str] = [
 
 THIRD_PARTY_APPS: list[str] = ["crispy_forms", "crispy_bootstrap5"]
 
-LOCAL_APPS: list[str] = ["Abacus.tournaments.apps.TournamentsConfig"]
+LOCAL_APPS: list[str] = [
+    "Abacus.tournaments.apps.TournamentsConfig",
+    "Abacus.pages.apps.PagesConfig",
+]
 
 INSTALLED_APPS: list[str] = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
