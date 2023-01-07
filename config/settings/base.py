@@ -3,6 +3,12 @@ Base settings to build other settings files upon.
 """
 from pathlib import Path
 
+import django_stubs_ext
+
+# Monkey-patching Django, so stubs will work for all generics;
+# see https://github.com/typeddjango/django-stubs
+django_stubs_ext.monkeypatch()
+
 ROOT_DIR: Path = Path(__file__).resolve(strict=True).parent.parent.parent
 APPS_DIR: Path = ROOT_DIR / "Abacus"
 
