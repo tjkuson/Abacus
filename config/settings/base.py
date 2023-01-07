@@ -50,7 +50,7 @@ DJANGO_APPS: list[str] = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS: list[str] = []
 
 LOCAL_APPS: list[str] = ["Abacus.tournaments.apps.TournamentsConfig"]
 
