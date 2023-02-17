@@ -10,7 +10,7 @@ readme = "README.md"
 python = "^3.11"
 Django = "^4.1.7"
 django-allauth = "^0.52.0"
-django-crispy-forms = "^1.14.0"
+django-crispy-forms = "^2.0"
 crispy-bootstrap5 = "^0.7"
 
 [tool.poetry.group.dev.dependencies]
